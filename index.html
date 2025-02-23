@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Game DB</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/game-icons/0.10.0/css/game-icons.min.css">
+</head>
+
+<body>
+    <header class="banner">
+        <h1 style="display: flex; align-items: center; justify-content: center;">
+            <span>👾</span>
+            <span style="margin: 0 10px;">Video Game Database</span>
+            <span>👾</span>
+        </h1>
+    </header>
+
+    <div class="container-xxl">
+        <div class="upload-container">
+            <h4 style="display: flex; align-items: center;">
+                <span>🎮</span>
+                <span style="margin-left: 10px;">Upload Game Data</span>
+            </h4>
+            <div class="examples-container">
+                <div class="example-container">
+                    <h5>Example for single game:</h5>
+                    <pre>
+{
+    "Game": "Crash Bandicoot",
+    "Year": 1996,
+    "Dev": "Naughty Dog",
+    "Publisher": "SCEEPAL, SCEAUS",
+    "Platform": "the Playstation"
+}</pre>
+                </div>
+
+                <div class="example-container">
+                    <h5>Example for multiple games:</h5>
+                    <pre>
+[
+    {
+        "Game": "Tomb Raider",
+        "Year": 1996,
+        "Dev": "Core Design",
+        "Publisher": "Eidos Interactive",
+        "Platform": "the Playstation"
+    },
+    {
+        "Game": "Tomb Raider II",
+        "Year": 1997,
+        "Dev": "Core Design",
+        "Publisher": "Eidos Interactive",
+        "Platform": "the Playstation"
+    }
+]</pre>
+                </div>
+            </div>
+            <div class="hint-container">
+                <div class="hint-icon">❓</div>
+                <div class="hint-text">
+                    <span style="text-decoration: underline; font-weight: 500; margin-right: 5px;">Hint:</span> Find
+                    JSON data
+                    <a href="https://github.com/Elbriga14/EveryVideoGameEver/tree/main/GamesDB"
+                        target="_blank">here</a>.
+                    For best results, include only Game, Year, Dev, Publisher, and Platform.
+                </div>
+            </div>
+            <textarea id="json_data" class="form-control json-textarea mt-3"
+                placeholder="Paste JSON data here"></textarea>
+            <button type="submit" id="upload_btn" class="btn btn-primary mt-2 button"><i
+                    class="fas fa-arrow-up"></i>&nbsp;&nbsp;Upload</button>
+        </div>
+        <div class="search-container">
+            <h4 style="display: flex; align-items: center;">
+                <span>🕹️</span>
+                <span style="margin-left: 10px;">Search Game Data</span>
+            </h4>
+            <section id="search_section" class="flex-fill">
+                <form id="searchForm" class="search-form" autocomplete="off">
+                    <div class="filter-container">
+                        <label for="searchFilter">Filter by:</label>
+                        <div class="dropdown-container">
+                            <select id="searchFilter" class="dropdown">
+                                <option value="Platform">Platform</option>
+                                <option value="Genre">Genre</option>
+                                <option value="Year">Year</option>
+                            </select>
+                            <select id="search_value_dropdown" class="dropdown"></select>
+                            <button type="submit" id="search_btn" class="btn btn-primary mt-2 button"><i
+                                    class="fas fa-search"></i>&nbsp;&nbsp;Search</button>
+                        </div>
+
+                    </div>
+                </form>
+                <div class="table-container">
+                    <table>
+                        <div id="searchResults" class="results-container"></div>
+                    </table>
+                </div>
+
+                <div id="pages" class="pages-container"></div>
+            </section>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
